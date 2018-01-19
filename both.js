@@ -18,7 +18,7 @@ let random_cofee_gif = ()=>{
     return item;
 }
 
-let removeAccent = function(str){
+let removeAccent = (str)=>{
     var accent = [
         /[\300-\306]/g, /[\340-\346]/g, // A, a
         /[\310-\313]/g, /[\350-\353]/g, // E, e
@@ -30,27 +30,12 @@ let removeAccent = function(str){
     ];
     var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
 
-    //var str = this;
     for(var i = 0; i < accent.length; i++){
         str = str.replace(accent[i], noaccent[i]);
     }
 
     return str;
 }
-
-
-thebot.on('ready', () => {
-    console.log('I am ready!');
-
-    if(!thebot.user.avatarURL){
-        console.log( thebot.user.avatarURL  )
-        // Set avatar
-        thebot.user.setAvatar('./cartman.png').catch(console.error);
-    }
-
-    bot_on_message()
-});
-
 
 let bot_on_message = ()=>{
 
@@ -84,6 +69,22 @@ let bot_on_message = ()=>{
 
     });
 }
+
+
+thebot.on('ready', () => {
+    console.log('I am ready!');
+
+    if(!thebot.user.avatarURL){
+        console.log( thebot.user.avatarURL  )
+        // Set avatar
+        thebot.user.setAvatar('./cartman.png').catch(console.error);
+    }
+
+    bot_on_message()
+});
+
+
+
 
 
 
